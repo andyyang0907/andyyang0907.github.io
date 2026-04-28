@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SPACE | HUMAN AND THE UNIVERSE</title>
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box}
+        html{scroll-behavior:smooth;scroll-snap-type:y mandatory;scroll-snap-stop:always}
+        body{background:#000;color:#fff;font-family:Helvetica,Arial,sans-serif;overflow-x:hidden}
+        section{height:100vh;display:flex;justify-content:center;align-items:center;scroll-snap-align:start;position:relative;overflow:hidden}
+
+        /* 第一页 */
+        .title{position:absolute;top:60px;font-size:13px;letter-spacing:5px;text-transform:uppercase;opacity:0;animation:text 2s ease 1.5s forwards}
+        .wrap{display:flex;align-items:center}
+        .moon{width:85%;max-width:700px;opacity:0;transform:scale(.9);animation:moon 5s ease 1s forwards}
+        .right-box{margin-left:40px;opacity:0;animation:sideFade 3s ease 6s forwards}
+        .right-title{font-size:22px;letter-spacing:1px;margin-bottom:24px;white-space:nowrap}
+        .btn-group{display:flex;flex-direction:column;gap:14px}
+        .btn{background:#fff;color:#000;border:none;padding:12px 26px;font-size:14px;border-radius:999px;cursor:pointer;transition:all .3s ease}
+        .btn:hover{transform:translateY(-5px) scale(1.05);box-shadow:0 0 22px rgba(255,255,255,.55)}
+        .text{position:absolute;bottom:60px;font-size:11px;letter-spacing:3px;opacity:0;animation:text 2s ease 4s forwards}
+
+        /* 通用页面 */
+        .page-img{width:90%;max-width:800px;opacity:0;transform:translateY(20px);animation:pageFade 3s ease forwards;position:relative;z-index:2}
+        .page-top{position:absolute;top:60px;font-size:13px;letter-spacing:5px;text-transform:uppercase;opacity:0;animation:text 2s ease 1.5s forwards;z-index:3}
+        .page-bottom{position:absolute;bottom:60px;font-size:11px;letter-spacing:3px;opacity:0;animation:text 2s ease 4s forwards;z-index:3}
+
+        /* 第二页右侧按钮 */
+        .rocket-right{position:absolute;top:22%;right:12%;opacity:0;animation:sideFade 3s ease 6s forwards;z-index:3}
+        .rocket-title{font-size:22px;letter-spacing:1px;margin-bottom:24px;white-space:nowrap}
+        .btn-light{background:#e0e0e0;color:#000;border:none;padding:12px 26px;font-size:14px;border-radius:999px;cursor:pointer;transition:all .3s ease}
+        .btn-light:hover{transform:translateY(-5px) scale(1.05);box-shadow:0 0 22px rgba(255,255,255,.4)}
+
+        /* 第三页 居中按钮容器 */
+        .galaxy-center-box{position:absolute;z-index:10;opacity:0;animation:sideFade 3s ease 5s forwards;text-align:center}
+        .galaxy-center-title{font-size:24px;letter-spacing:2px;margin-bottom:30px;text-transform:uppercase}
+        .btn-galaxy{background:rgba(255,255,255,0.15);color:#fff;border:none;padding:12px 28px;font-size:14px;border-radius:999px;cursor:pointer;transition:all .3s ease}
+        .btn-galaxy:hover{transform:translateY(-5px) scale(1.05);box-shadow:0 0 25px rgba(180,220,255,.6);background:rgba(255,255,255,0.25)}
+
+        /* 第二页金属背景 */
+        .metal-bg{position:absolute;left:0;top:0;width:35%;height:100%;background:linear-gradient(110deg,#111,#1c1c1c 25%,#272727 50%,#1c1c1c 75%,#111);background-size:300% 100%;z-index:1;animation:metalMove 8s linear infinite;opacity:.65}
+
+        /* 第三页星系动画 */
+        .img-galaxy{width:90%;max-width:800px;opacity:0;transform:scale(.8)}
+        .img-galaxy.active{animation:galaxyScale 2.5s ease-out forwards,galaxyMove 15s ease-in-out 2.5s infinite}
+
+        /* 全局动画 */
+        @keyframes text{0%{opacity:0;transform:translateY(10px)}100%{opacity:.6;transform:translateY(0)}}
+        @keyframes moon{0%{opacity:0;transform:scale(.9)}100%{opacity:1;transform:scale(1)}}
+        @keyframes sideFade{0%{opacity:0}100%{opacity:1}}
+        @keyframes pageFade{0%{opacity:0;transform:translateY(20px)}100%{opacity:1;transform:translateY(0)}}
+        @keyframes metalMove{0%{background-position:0 50%}50%{background-position:100% 50%}100%{background-position:0 50%}}
+        @keyframes galaxyScale{0%{opacity:0;transform:scale(.8)}100%{opacity:1;transform:scale(2.5)}}
+        @keyframes galaxyMove{0%{transform:translate(-200px,-150px) scale(2.5)}25%{transform:translate(200px,-150px) scale(2.5)}50%{transform:translate(200px,150px) scale(2.5)}75%{transform:translate(-200px,-150px) scale(2.5)}100%{transform:translate(-200px,-150px) scale(2.5)}}
+    </style>
+</head>
+<body>
+
+<!-- 第一页 -->
+<section>
+    <div class="title">DEEP SPACE</div>
+    <div class="wrap">
+        <img class="moon" src="moon.jpg" alt="moon">
+        <div class="right-box">
+            <div class="right-title">HUMAN AND THE UNIVERSE</div>
+            <div class="btn-group">
+                <button class="btn" onclick="location.href='The Development History of Human Exploration of Outer Space.pdf'">history</button>
+                <button class="btn" onclick="location.href='now.html'">now</button>
+                <button class="btn" onclick="location.href='future.html'">future</button>
+            </div>
+        </div>
+    </div>
+    <div class="text">LUNAR SURFACE · EARTH RISE</div>
+</section>
+
+<!-- 第二页 -->
+<section>
+    <div class="metal-bg"></div>
+    <div class="page-top">AEROSPACE EXPLORATION</div>
+    <img class="page-img" src="rocket.jpg" alt="rocket">
+    <div class="page-bottom">ROCKET POWER · SPACE CARRIER</div>
+    <div class="rocket-right">
+        <div class="rocket-title">NEW ERA ROCKET</div>
+        <div class="btn-group">
+            <button class="btn-light" onclick="location.href='launch.html'">LAUNCH</button>
+            <button class="btn-light" onclick="location.href='flight.html'">FLIGHT</button>
+            <button class="btn-light" onclick="location.href='orbit.html'">ORBIT</button>
+        </div>
+    </div>
+</section>
+
+<!-- 第三页 -->
+<section>
+    <div class="page-top">GALACTIC BOUNDARY</div>
+    <img class="img-galaxy" src="galaxy.jpg" alt="galaxy">
+    <div class="page-bottom">INFINITE COSMOS · UNKNOWN FRONTIER</div>
+
+    <div class="galaxy-center-box">
+        <div class="galaxy-center-title">GALAXY WORLD</div>
+        <div class="btn-group">
+            <button class="btn-galaxy" onclick="location.href='nebula.html'">NEBULA</button>
+            <button class="btn-galaxy" onclick="location.href='constellation.html'">CONSTELLATION</button>
+            <button class="btn-galaxy" onclick="location.href='cosmos.html'">COSMOS</button>
+        </div>
+    </div>
+</section>
+
+<!-- 第四页 -->
+<section>
+    <div class="page-top">STARRY FIRMAMENT</div>
+    <img class="page-img" src="star.jpg" alt="star">
+    <div class="page-bottom">LIGHT YEARS · ETERNAL SILENCE</div>
+</section>
+
+<script>
+const observer = new IntersectionObserver(e=>{
+    if(e[0].isIntersecting) e[0].target.classList.add('active');
+},{threshold:.7});
+observer.observe(document.querySelector('.img-galaxy'));
+</script>
+
+</body>
+</html>
